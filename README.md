@@ -1,4 +1,4 @@
 AbbOptitrack
 ============
 
-Code for Alonso PFC and Experimetns
+Code for Alonso PFC and Experiments
