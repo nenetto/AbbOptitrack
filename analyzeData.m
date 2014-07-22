@@ -20,4 +20,5 @@ function analyzeData(fileData)
     data = cat(2,AbbData,normal_mean,OptMahalanobisMean,OptDataSDFirst1000,OptDataSDLast1000);
     fileName_cut  = regexprep(fileData, 'DATA.mat', '');
     save(fileName_cut,'data');
+    csvwrite(fileName_cut,data);
 
