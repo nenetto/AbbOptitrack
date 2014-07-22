@@ -14,12 +14,18 @@ function extractDatafromFile(fileName,N)
         % Abb points
         for j = 1:3
             tline = fgetl(fid);
+            if(~ischar(tline))
+                break;
+            end
             AbbData(i,j) = str2double(tline);
         end
 
         % Opt points
         for j = 1:3
             tline = fgetl(fid);
+            if(~ischar(tline))
+                break;
+            end
             data = textscan(tline, '%f', 'delimiter', ',');
             OptData(i,j,:) = data{1};
 
