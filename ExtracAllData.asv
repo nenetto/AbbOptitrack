@@ -20,7 +20,7 @@ end
 
 %% Extract the means and SD
 
-for i = 1:Nfiles
+parfor i = 1:Nfiles
    
     fileName = filesData{i};
     analyzeData(fileName);
@@ -31,19 +31,10 @@ end
 
 %% Join all the files
 
-filesInFolder = ls('*.csv');
+filesInFolder = ls('.mat');
 
-DATA = [];
 
-for i = 1:Nfiles
-   
-    fileName = filesInFolder(i,:);
-    dataFile = csvread(fileName);
-    
-    DATA = cat(1,DATA,dataFile);
-    
-end
 
-csvwrite('PointsData.csv',DATA);
+
 
 

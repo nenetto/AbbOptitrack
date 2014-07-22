@@ -18,7 +18,7 @@ function analyzeData(fileData)
     % AbbData3, NormalMean3,, MahalanobisMean3
 
     data = cat(2,AbbData,normal_mean,OptMahalanobisMean,OptDataSDFirst1000,OptDataSDLast1000);
-    fileName_cut  = regexprep(fileData, 'DATA.mat', '');
+    fileName_cut  = regexprep(fileData, 'DATA.mat', '.csv');
     save(fileName_cut,'data');
     csvwrite(fileName_cut,data);
 
