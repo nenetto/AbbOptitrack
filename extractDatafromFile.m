@@ -4,6 +4,8 @@ function extractDatafromFile(fileName,N)
        N=100;
     end;
 
+    N_real = 0;
+    
     AbbData = zeros(N,3);
     OptData = zeros(N,3,2000);
 
@@ -34,9 +36,27 @@ function extractDatafromFile(fileName,N)
     end
 
     fclose(fid);
+
+    
+    
+    fid = fopen(fileName);
+
+    tline = fgetl(fid);
+    while ischar(tline)
+        N_real = N_real + 1;
+        tline = fgetl(fid);
+    end
+
+    fclose(fid);
+    
+    
+    N_real = N_real/6;
     
     %% Save data
 
+    AbbData = AbbData(1:N_real,:);
+    OptData = OptData(1:N_real,:,:);
+    
     % AbbData3, NormalMean3, MedianTukey3, MahalanobisMean3
 
     data = cell(2);
