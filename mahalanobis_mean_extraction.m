@@ -7,6 +7,10 @@ function mahala_mean = mahalanobis_mean_extraction(X)
         M = squeeze(X(i,:,:))';  
         mahala_mean(i,:) = mahalanobis_mean(M);
         
+        if(isnan(mahala_mean(i,:)))
+            mahala_mean(i,:) = mean(M,1);
+        end
+        
     end
 
 

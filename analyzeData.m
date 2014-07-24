@@ -9,7 +9,7 @@ function analyzeData(fileData)
     %% Extract the mean and median
     normal_mean = mean(OptData(:,:,1:1000),3);
     % OptDataTukey = medianTukey(OptData(:,:,1001:end));
-    OptMahalanobisMean = mahalanobis_mean_extraction(OptData(:,:,1:1000));
+    OptMahalanobisMean = mahalanobis_mean_extraction(OptData(:,:,1001:end));
     OptDataSDFirst1000  = std(OptData(:,:,1:1000),0,3);
     OptDataSDLast1000  = std(OptData(:,:,1001:end),0,3);
 
