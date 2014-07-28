@@ -1,7 +1,7 @@
 function mahala_mean = mahalanobis_mean(X)
    
         mahal_distance = mahal(X,X);
-        mahal_distance_inv = 1./mahal_distance;
+        mahal_distance_inv = 1./(1+mahal_distance);
         mahal_distance_inv_normalized = mahal_distance_inv/sum(mahal_distance_inv);
         
         X(:,1) = X(:,1).*mahal_distance_inv_normalized;
